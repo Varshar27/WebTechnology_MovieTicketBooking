@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Website Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+
+body { 
+        background-image: url('css/index.gif');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover; 
+      }
+
+      
+     .navbar{
+      margin-bottom:0;
+      border-radius:0;
+      background-color:black;
+      color:cyan;
+      padding:2% 0;
+      font-size:1.9en;
+      border:0;
+      
+    }
+    .navbar-brand{
+      float:left;
+      min-height: 55px;
+      padding:0 15px 5px;
+
+    }
+    .navbar-inverse .navbar-nav.active a, .navbar-inverse .navbar-nav .active a:focus,.navbar-inverse .navbar-nav .active a:hover
+    
+    {
+
+      color: #fff;
+      background-color: beige;
+
+    }
+
+    .carousel-caption{
+
+      top:50%;
+      transform:translateY(50%);
+      text-transform:uppercase;
+
+    }
+
+    
+
+
+    .container{
+      margin:4% auto;
+    }
+
+    .container .btn:hover {
+  background-color: rgb(145, 110, 110);
+}
+ 
+
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(10, 4, 4);
+  color: white;
+  font-size: 16px;
+  padding: 200% 150px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin: 2px 2px;
+}
+
+    #icon{
+
+      max-width:200px;
+      margin:1% auto;
+    }
+
+    ;
+
+    @media(max-width:600px)
+    {
+      .carousel-caption{
+        display: none;
+
+      }
+    }
+
+    
+  </style>
+</head>
+<body>
+
+  
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="css/pvr1.png"></a>
+
+          
+        </div>
+		
+        <div class="collapse navbar-collapse" id="myNavbar">          			
+          <ul class="nav navbar-nav navbar-right">			
+            <li class="active"><button id="book" style="display:block;margin:0em 0.5em;background-color: black" type="button" class="btn btn-success btn-lg">Book Tickets</button></li>
+            <li class="active"><a href="page1.html">Home</a></li>
+            <li><a data-toggle="modal" data-target="#myModal" >Sign up</a></li>
+            <li><a data-toggle="modal" data-target="#contact" href="#">Contact Us</a></li>            
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+	
+    
+    
+	<div id="contact" class="modal fade" role="dialog">
+		  <div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Contact</h4>
+			  </div>
+			  <div class="modal-body">
+				<h3><b>Address:</b></h3>
+				<h4>PVR Cinemas
+        , Dún Laoghaire,
+				Co. Dublin, Ireland, A96 KH79</h4>
+				<br/>
+				<h3><b>Phone:</b></h3>
+				<h4>+ 353 1 239 4008</h4>
+				<br/>
+				<h3><b>Email:</b></h3>
+				<h4>contactus@pvrcinemas.ie</h4>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	
+      <!-- The Modal -->
+     <div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Sign Up</h4>
+		  </div>
+		  <div class="modal-body">
+			 <form action="/action_page.php">
+			  <div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="form-group">
+				<label for="cpwd">Confirm Password:</label>
+				<input type="password" class="form-control" id="cpwd">
+			  </div>
+			  <div class="checkbox">
+				<label><input type="checkbox"> Remember me</label>
+			  </div>
+			  <button type="button" id="submit" class="pull-right btn btn-default">Submit</button>
+			  <div class="clearfix"></div>
+			</form> 
+		  </div>
+		   
+		</div>
+
+	  </div>
+	</div>
+	
+	<script>
+		$("#book").click(function()
+		{
+			if(localStorage.getItem("email")==null)			
+			{				
+				$("#myModal").modal("show");
+				
+			}else
+			{
+				window.location = "movielisting.html";				
+			}
+		});
+		
+		
+		$("#submit").click(function()
+		{
+			if($("#email").val().length==0)
+			{
+				alert("Please provide a valid name");
+				
+			}else if($("#pwd").val().length==0)
+			{
+				alert("Please provide a valid password");
+				
+			}else if($("#cpwd").val().length==0 || $("#cpwd").val()!=$("#pwd").val())
+			{
+				alert("Password & Confirm password do not match");
+				
+			}else
+			{
+				$("#myModal").modal("hide");
+				alert("Hello, Welcome to PVR Cinemas . Thank you for your registration. Please click on book tickets now  ");				
+				
+				localStorage.setItem("email", $("#email").val());
+				localStorage.setItem("pwd", $("#pwd").val());
+				localStorage.setItem("cpwd", $("#cpwd").val());
+				
+			}
+		});
+		
+	</script>
+
+</body>
